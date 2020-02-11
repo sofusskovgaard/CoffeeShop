@@ -9,6 +9,8 @@ namespace CoffeeShop.Lib.Models
 {
     public class Snack : Product
     {
+        public string ImagePath { get; set; }
+
         public int Weight { get; set; }
 
         public List<Allergen> Allergens { get; set; }

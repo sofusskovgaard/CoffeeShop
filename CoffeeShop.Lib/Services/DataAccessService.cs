@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -12,16 +13,16 @@ namespace CoffeeShop.Lib.Services
 {
     public class DataAccessService
     {
-        public List<Bean> Beans { get; set; }
-        public List<Drink> Drinks { get; set; }
-        public List<Snack> Snacks { get; set; }
+        public ObservableCollection<Bean> Beans { get; set; }
+        public ObservableCollection<Drink> Drinks { get; set; }
+        public ObservableCollection<Snack> Snacks { get; set; }
 
         public DataAccessService()
         {
 
-            Beans = new List<Bean>();
-            Drinks = new List<Drink>();
-            Snacks = new List<Snack>();
+            Beans = new ObservableCollection<Bean>();
+            Drinks = new ObservableCollection<Drink>();
+            Snacks = new ObservableCollection<Snack>();
 
 
 

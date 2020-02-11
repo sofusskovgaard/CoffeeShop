@@ -3,3 +3,8 @@ C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\bin\Debug\CoffeeShop.Lib.p
 C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.csprojAssemblyReference.cache
 C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.dll
 C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.pdb
+C:\Repos\CoffeeShop\CoffeeShop.Lib\bin\Debug\CoffeeShop.Lib.dll
+C:\Repos\CoffeeShop\CoffeeShop.Lib\bin\Debug\CoffeeShop.Lib.pdb
+C:\Repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.csprojAssemblyReference.cache
+C:\Repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.dll
+C:\Repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.pdb

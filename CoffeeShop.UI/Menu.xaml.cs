@@ -23,11 +23,20 @@ namespace CoffeeShop.UI
     {
         private DataAccessService _dataAccessService;
 
+        private bool _adminDest = true;
+
         public Menu()
         {
             _dataAccessService = new DataAccessService();
 
             InitializeComponent();
+
+            if (!_adminDest)
+            {
+                editBeansButton.IsEnabled = false;
+                editDrinksButton.IsEnabled = false;
+                editSnacksButton.IsEnabled = false;
+            }
         }
 
         private void ShowBeans(object sender, RoutedEventArgs e)
@@ -37,27 +46,27 @@ namespace CoffeeShop.UI
 
         private void ShowDrinks(object sender, RoutedEventArgs e)
         {
-            new ShowDrinks().Show();
+            new ShowDrinks(_dataAccessService).Show();
         }
 
         private void ShowSnacks(object sender, RoutedEventArgs e)
         {
-            new ShowSnacks().Show();
+            new ShowSnacks(_dataAccessService).Show();
         }
 
         private void EditBeans(object sender, RoutedEventArgs e)
         {
-            new EditBeans().Show();
+            new EditBeans(_dataAccessService).Show();
         }
 
         private void EditDrinks(object sender, RoutedEventArgs e)
         {
-            new EditDrinks().Show();
+            new EditDrinks(_dataAccessService).Show();
         }
 
         private void EditSnacks(object sender, RoutedEventArgs e)
         {
-            new EditSnacks().Show();
+            new EditSnacks(_dataAccessService).Show();
         }
     }
 }

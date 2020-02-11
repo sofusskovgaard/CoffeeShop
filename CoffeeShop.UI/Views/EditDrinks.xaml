@@ -4,9 +4,104 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoffeeShop.UI.Views"
+        xmlns:converters="clr-namespace:CoffeeShop.UI.Converters"
         mc:Ignorable="d"
-        Title="EditDrinks" Height="450" Width="800">
-    <Grid>
-        
+        Title="EditDrinks" Height="737.371" Width="800">
+  <Grid DataContext="{Binding ElementName=drinksList, Path=SelectedItem }">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="3*"/>
+    </Grid.ColumnDefinitions>
+
+    <ListBox Name="drinksList" Grid.ColumnSpan="1" SelectionChanged="DrinksList_OnSelectionChanged" Margin="0,0,0,39">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <TextBlock Text="{Binding Name}" />
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+
+    <Grid Grid.Column="1">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="3*" />
+      </Grid.ColumnDefinitions>
+
+      <TextBox Name="IdTextBox" Grid.Column="1" Height="23" Margin="8,8,8,0" TextWrapping="Wrap" Text="{Binding Id, Mode=TwoWay}" VerticalAlignment="Top" Grid.ColumnSpan="2" IsEnabled="False"/>
+
+      <TextBox Name="NameTextBox" Grid.Column="1" Height="23" Margin="8,39,8,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+      <RichTextBox Name="DescriptionTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Height="54" Margin="8,70,8,0" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2">
+        <FlowDocument>
+          <Paragraph>
+            <Run Text="{Binding Description, Mode=TwoWay}"/>
+          </Paragraph>
+        </FlowDocument>
+      </RichTextBox>
+
+      <!--<ComboBox Name="OriginComboBox" SelectedItem="{Binding Bean.Origin, Mode=TwoWay}" Grid.Column="1" Margin="8,132,8,0" VerticalAlignment="Top" IsEnabled="False" Height="22" Grid.ColumnSpan="2"/>
+
+      <ComboBox Name="RoastComboBox" SelectedItem="{Binding Bean.Roast, Mode=TwoWay}" Grid.Column="1" VerticalAlignment="Top" Margin="8,162,8,0" IsEnabled="False" Height="22" Grid.ColumnSpan="2"/>-->
+
+      <TextBlock Margin="8,8,8,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Height="23"/>
+      <TextBlock Margin="8,70,8,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="23"/>
+      <TextBlock Margin="8,39,8,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="23"/>
+      <TextBlock Margin="8,132,8,0" TextWrapping="Wrap" Text="Price" VerticalAlignment="Top" Height="23"/>
+
+      <GroupBox Grid.Column="1" VerticalAlignment="Top" Margin="8,163,8,0">
+        <GroupBox.Header>
+          <ComboBox Name="BeanComboBox" DisplayMemberPath="Name"
+                  SelectedIndex="0"
+                  SelectedValue="{Binding Bean}"
+                  SelectedValuePath=""/>
+        </GroupBox.Header>
+        <Grid Grid.Column="1" Margin="0,8">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+          </Grid.ColumnDefinitions>
+
+          <TextBox Name="BeanIdTextBox" Grid.Column="1" Height="23" Margin="8,8,8,0" TextWrapping="Wrap" Text="{Binding Bean.Id, Mode=TwoWay}" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2"/>
+
+          <TextBox Name="BeanNameTextBox" Grid.Column="1" Height="23" Margin="8,39,8,0" TextWrapping="Wrap" Text="{Binding Bean.Name, Mode=TwoWay}" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2"/>
+
+          <RichTextBox Name="BeanDescriptionTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Height="54" Margin="8,70,8,0" VerticalAlignment="Top" Width="Auto" IsEnabled="False" Grid.ColumnSpan="2">
+            <FlowDocument>
+              <Paragraph>
+                <Run Text="{Binding Bean.Description, Mode=TwoWay}"/>
+              </Paragraph>
+            </FlowDocument>
+          </RichTextBox>
+
+          <ComboBox Name="BeanOriginComboBox" SelectedItem="{Binding Bean.Origin, Mode=TwoWay}" Grid.Column="1" Margin="8,132,8,0" VerticalAlignment="Top" IsEnabled="False" Height="22" Grid.ColumnSpan="2"/>
+
+          <ComboBox Name="BeanRoastComboBox" SelectedItem="{Binding Bean.Roast, Mode=TwoWay}" Grid.Column="1" VerticalAlignment="Top" Margin="8,162,8,0" IsEnabled="False" Height="22" Grid.ColumnSpan="2"/>
+
+          <TextBlock Margin="8,8,8,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Height="23"/>
+          <TextBlock Margin="8,70,8,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="23"/>
+          <TextBlock Margin="8,39,8,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="23"/>
+          <TextBlock Margin="8,132,8,0" TextWrapping="Wrap" Text="Origin" VerticalAlignment="Top" Height="23"/>
+          <TextBlock Margin="8,162,8,0" TextWrapping="Wrap" Text="Roast" VerticalAlignment="Top" Height="23"/>
+
+        </Grid>
+      </GroupBox>
+
+      <Image Name="Image" Source="{Binding ImagePath}" Grid.Column="1" Margin="8,401,8,8" Visibility="Hidden" />
+      <Button Name="AddImageButton" Content="Add Image" Grid.Column="1" Margin="8,401,8,8" Background="{x:Null}" BorderBrush="{x:Null}" Click="AddImageButton_OnClick"/>
+      <TextBox Name="PriceTextBox" Grid.Column="1" Height="23" Margin="8,132,8,0" TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay, StringFormat={}{0:C}}" VerticalAlignment="Top"/>
+      <TextBlock Margin="8,163,8,0" TextWrapping="Wrap" Text="Beans" VerticalAlignment="Top" Height="23"/>
     </Grid>
+
+    <Button Name="CreateDrinkButton" Content="Create Drink" HorizontalAlignment="Left" Margin="8,0,0,8" VerticalAlignment="Bottom" Width="87" Click="CreateDrinkButton_OnClick"/>
+    <Button Name="RemoveDrinkButton" Content="Remove Drink" Margin="0,0,8,8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="87" Click="RemoveDrinkButton_OnClick"/>
+  </Grid>
 </Window>

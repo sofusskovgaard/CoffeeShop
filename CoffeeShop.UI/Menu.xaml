@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoffeeShop.UI"
         mc:Ignorable="d"
-        Title="Menu" Height="500" Width="300">
-    <StackPanel Margin="0">
-        <TextBlock TextWrapping="Wrap" Text="Customer Section" Margin="8"/>
-        <Button Content="Show Beans" Margin="8,0,8,8" Padding="8" Click="ShowBeans" />
-        <Button Content="Show Drinks" Margin="8,0,8,8" Padding="8" Click="ShowDrinks" />
-        <Button Content="Show Snacks" Margin="8,0,8,8" Padding="8" Click="ShowSnacks" />
-        <TextBlock TextWrapping="Wrap" Text="Administration" Margin="8"/>
-        <Button Content="Edit Beans" Margin="8,0,8,8" Padding="8" Click="EditBeans" />
-        <Button Content="Edit Drinks" Margin="8,0,8,8" Padding="8" Click="EditDrinks" />
-        <Button Content="Edit Snacks" Margin="8,0,8,8" Padding="8" Click="EditSnacks" />
-    </StackPanel>
+        Title="Menu" Height="347" Width="300">
+  <StackPanel Margin="0">
+    <TextBlock TextWrapping="Wrap" Text="Customer Section" Margin="8"/>
+    <Button Name="showBeansButton"  Content="Show Beans" Margin="8,0,8,8" Padding="8" Click="ShowBeans" />
+    <Button Name="showDrinksButton" Content="Show Drinks" Margin="8,0,8,8" Padding="8" Click="ShowDrinks" />
+    <Button Name="showSnacksButton" Content="Show Snacks" Margin="8,0,8,8" Padding="8" Click="ShowSnacks" />
+
+    <TextBlock TextWrapping="Wrap" Text="Administration" Margin="8"/>
+    <Button Name="editBeansButton" Content="Edit Beans" Margin="8,0,8,8" Padding="8" Click="EditBeans" />
+    <Button Name="editDrinksButton" Content="Edit Drinks" Margin="8,0,8,8" Padding="8" Click="EditDrinks" />
+    <Button Name="editSnacksButton" Content="Edit Snacks" Margin="8,0,8,8" Padding="8" Click="EditSnacks" />
+  </StackPanel>
 </Window>
