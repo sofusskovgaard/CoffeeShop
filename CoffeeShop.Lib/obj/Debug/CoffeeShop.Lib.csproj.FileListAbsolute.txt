@@ -1,0 +1,5 @@
+C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\bin\Debug\CoffeeShop.Lib.dll
+C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\bin\Debug\CoffeeShop.Lib.pdb
+C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.csprojAssemblyReference.cache
+C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.dll
+C:\Users\sofus\source\repos\CoffeeShop\CoffeeShop.Lib\obj\Debug\CoffeeShop.Lib.pdb
